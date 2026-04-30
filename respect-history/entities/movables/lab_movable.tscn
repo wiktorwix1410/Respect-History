@@ -12,7 +12,7 @@ wall_layer = 8
 entity_layer = 4
 destroyable_layer = 2
 player_layer = 1
-sprite = NodePath("Area2D/Sprite")
+sprite = NodePath("Area2D/Barrel")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=285495641]
 collision_layer = 4
@@ -21,6 +21,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=523840907]
 shape = SubResource("RectangleShape2D_nsaja")
 
-[node name="Sprite" type="Sprite2D" parent="Area2D" unique_id=1008149683]
+[node name="Barrel" type="Sprite2D" parent="Area2D" unique_id=1008149683]
 texture_filter = 1
 texture = ExtResource("2_47tb1")
