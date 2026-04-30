@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://qevordclxpjw"]
 
+[ext_resource type="Script" uid="uid://b63es0o21fup4" path="res://entities/Interactables/checkpoints/lab_checkpoint.gd" id="1_jj2yn"]
 [ext_resource type="Texture2D" uid="uid://2as5nwgx0ljc" path="res://icon.svg" id="1_t12hv"]
 
-[node name="LabCheckpoint" type="Node2D" unique_id=1356111122]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpk2s"]
+size = Vector2(20, 22)
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1354068130]
+[node name="LabCheckpoint" type="Node2D" unique_id=1356111122]
+script = ExtResource("1_jj2yn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1543692837]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1847881611]
+shape = SubResource("RectangleShape2D_vpk2s")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1354068130 groups=["checkpoints"]]
 texture = ExtResource("1_t12hv")
