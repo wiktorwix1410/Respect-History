@@ -38,6 +38,7 @@ var fall_speed: float:
 		return Global.TILE_SIZE * fall_tiles_per_second
 
 func _ready() -> void:
+	add_to_group("resettable")
 	target_position = global_position
 	if sprite:
 		base_sprite_pos = sprite.position

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cq3l6rui1b8mf" path="res://entities/characters/dr_chronos/dr_chronos.tscn" id="6_ncg8f"]
 [ext_resource type="PackedScene" uid="uid://dhj56cq4kmpa8" path="res://entities/destroyables/destroyable.tscn" id="7_haio7"]
 [ext_resource type="PackedScene" uid="uid://dovajluv06huy" path="res://entities/movables/lab_movable.tscn" id="8_yqky3"]
+[ext_resource type="PackedScene" uid="uid://qevordclxpjw" path="res://entities/Interactables/checkpoints/lab_checkpoint.tscn" id="10_rcdsr"]
 
 [sub_resource type="Resource" id="Resource_x4x4f"]
 script = ExtResource("2_rpv4c")
@@ -468,6 +469,15 @@ position = Vector2(-495.945, -176)
 zoom = Vector2(3, 3)
 script = ExtResource("6_haio7")
 target = NodePath("../Dr_ Chronos")
+
+[node name="Checkpoints" type="Node2D" parent="." unique_id=115324593]
+position = Vector2(-176, -144)
+
+[node name="LabCheckpoint2" parent="Checkpoints" unique_id=917837324 instance=ExtResource("10_rcdsr")]
+position = Vector2(-320, -32)
+
+[node name="LabCheckpoint" parent="Checkpoints" unique_id=1356111122 instance=ExtResource("10_rcdsr")]
+position = Vector2(256, 192)
 
 [node name="Dr_ Chronos" parent="." unique_id=643783559 node_paths=PackedStringArray("target_camera") instance=ExtResource("6_ncg8f")]
 position = Vector2(-720, -176)

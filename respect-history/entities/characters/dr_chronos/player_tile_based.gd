@@ -3,6 +3,7 @@ extends Node2D
 signal moving(dir: Vector2, is_moving: bool)
 signal intro_complete
 signal dead
+signal checkp
 
 @onready var ray_cast_up: RayCast2D = $Raycast/RayCastUp
 @onready var ray_cast_down: RayCast2D = $Raycast/RayCastDown
@@ -57,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		handle_input()
 		move_to_target(delta)
-
+		
 func handle_intro_movement(delta: float):
 	if global_position.distance_to(intro_position) <= 1:
 		return
@@ -76,6 +77,7 @@ func handle_intro_movement(delta: float):
 		intro_complete.emit()
 		handle_input()
 
+
 func handle_input() -> void:
 	if is_moving or is_dead:
 		return
@@ -92,6 +94,10 @@ func handle_input() -> void:
 		direction = Vector2.RIGHT
 	
 	move(direction)
+	
+	#Signals the checkpoint upon pressing space
+	if Input.is_action_just_pressed("return_to_checkpoint"):
+		checkp.emit()
 
 func move(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
@@ -166,3 +172,7 @@ func die() -> void:
 	is_dead = true
 	print("dead")
 	dead.emit()
+	#Waits 3 seconds and resets the player death state and signals the checkpoint
+	await get_tree().create_timer(3).timeout
+	is_dead = false
+	checkp.emit()
