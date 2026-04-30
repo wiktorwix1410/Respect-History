@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dovajluv06huy"]
 
 [ext_resource type="Script" uid="uid://d4hwtascwvlam" path="res://entities/movables/movable.gd" id="1_nsaja"]
-[ext_resource type="Texture2D" uid="uid://c1txa0mv2imwm" path="res://entities/movables/barrel.png" id="2_47tb1"]
+[ext_resource type="Texture2D" uid="uid://bmk5fsnpnf5qg" path="res://entities/previewbarrel.png" id="2_47tb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsaja"]
 size = Vector2(16, 16)
