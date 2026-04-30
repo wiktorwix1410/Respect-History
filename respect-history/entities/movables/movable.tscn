@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dovajluv06huy"]
 
 [ext_resource type="Script" uid="uid://d4hwtascwvlam" path="res://entities/movables/movable.gd" id="1_nsaja"]
-[ext_resource type="Texture2D" uid="uid://b7osy855ctq5v" path="res://entities/movables/barrel.png" id="2_47tb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsaja"]
 size = Vector2(16, 16)
@@ -23,4 +22,3 @@ shape = SubResource("RectangleShape2D_nsaja")
 
 [node name="Sprite" type="Sprite2D" parent="Area2D" unique_id=1008149683]
 texture_filter = 1
-texture = ExtResource("2_47tb1")
