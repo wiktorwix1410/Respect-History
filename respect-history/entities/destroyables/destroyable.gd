@@ -3,7 +3,6 @@ extends Node2D
 @onready var area: Area2D = $Area2D
 
 func _ready() -> void:
-	add_to_group("resettable")
 	area.area_entered.connect(player_entered)
 
 
