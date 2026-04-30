@@ -477,7 +477,7 @@ position = Vector2(-176, -144)
 position = Vector2(-320, -32)
 
 [node name="LabCheckpoint" parent="Checkpoints" unique_id=1356111122 instance=ExtResource("10_rcdsr")]
-position = Vector2(0, 128)
+position = Vector2(256, 192)
 
 [node name="Dr_ Chronos" parent="." unique_id=643783559 node_paths=PackedStringArray("target_camera") instance=ExtResource("6_ncg8f")]
 position = Vector2(-720, -176)
