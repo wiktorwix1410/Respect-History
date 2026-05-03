@@ -524,6 +524,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_fiqgd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=698161731]
+z_index = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gs2pr")
 animation = &"idle_right"

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://nnwuk18abx1n" path="res://stages/camera_control.gd" id="6_haio7"]
 [ext_resource type="PackedScene" uid="uid://cq3l6rui1b8mf" path="res://entities/characters/dr_chronos/dr_chronos.tscn" id="6_ncg8f"]
 [ext_resource type="PackedScene" uid="uid://dhj56cq4kmpa8" path="res://entities/destroyables/destroyable.tscn" id="7_haio7"]
+[ext_resource type="PackedScene" uid="uid://bqwdgvjw72lvm" path="res://entities/Interactables/computer/computer.tscn" id="8_2cbay"]
 [ext_resource type="PackedScene" uid="uid://dovajluv06huy" path="res://entities/movables/lab_movable.tscn" id="8_yqky3"]
 [ext_resource type="PackedScene" uid="uid://qevordclxpjw" path="res://entities/Interactables/checkpoints/lab_checkpoint.tscn" id="10_rcdsr"]
 
@@ -470,6 +471,23 @@ zoom = Vector2(3, 3)
 script = ExtResource("6_haio7")
 target = NodePath("../Dr_ Chronos")
 
+[node name="Dr_ Chronos" parent="." unique_id=643783559 node_paths=PackedStringArray("target_camera") instance=ExtResource("6_ncg8f")]
+position = Vector2(-720, -176)
+target_camera = NodePath("../Camera2D")
+intro_delay = 1.0
+
+[node name="Computers" type="Node2D" parent="." unique_id=326769112]
+
+[node name="Computer1" parent="Computers" unique_id=2072303069 node_paths=PackedStringArray("player") instance=ExtResource("8_2cbay")]
+position = Vector2(-432, -48)
+player = NodePath("../../Dr_ Chronos")
+correct_password = "1234"
+
+[node name="Computer2" parent="Computers" unique_id=590695713 node_paths=PackedStringArray("player") instance=ExtResource("8_2cbay")]
+position = Vector2(400, 176)
+player = NodePath("../../Dr_ Chronos")
+correct_password = "1111"
+
 [node name="Checkpoints" type="Node2D" parent="." unique_id=115324593]
 position = Vector2(-176, -144)
 
@@ -479,20 +497,15 @@ position = Vector2(-320, -32)
 [node name="LabCheckpoint" parent="Checkpoints" unique_id=1356111122 instance=ExtResource("10_rcdsr")]
 position = Vector2(256, 192)
 
-[node name="Dr_ Chronos" parent="." unique_id=643783559 node_paths=PackedStringArray("target_camera") instance=ExtResource("6_ncg8f")]
-position = Vector2(-720, -176)
-target_camera = NodePath("../Camera2D")
-intro_delay = 1.0
-
 [node name="Destroyables" type="Node2D" parent="." unique_id=1825191598]
-
-[node name="Destroyable2" parent="Destroyables" unique_id=310286838 instance=ExtResource("7_haio7")]
-texture_filter = 1
-position = Vector2(-464, -112)
 
 [node name="Destroyable16" parent="Destroyables" unique_id=473921713 instance=ExtResource("7_haio7")]
 texture_filter = 1
 position = Vector2(-464, -144)
+
+[node name="Destroyable2" parent="Destroyables" unique_id=310286838 instance=ExtResource("7_haio7")]
+texture_filter = 1
+position = Vector2(-464, -112)
 
 [node name="Destroyable3" parent="Destroyables" unique_id=1600383614 instance=ExtResource("7_haio7")]
 texture_filter = 1
