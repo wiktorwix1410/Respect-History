@@ -548,22 +548,22 @@ position = Vector2(368, 48)
 
 [node name="Movables" type="Node2D" parent="." unique_id=692844218]
 
-[node name="Movable" parent="." unique_id=260775831 instance=ExtResource("8_yqky3")]
+[node name="Movable" parent="Movables" unique_id=260775831 instance=ExtResource("8_yqky3")]
 position = Vector2(-48, 16)
 
-[node name="Movable3" parent="." unique_id=1844980500 instance=ExtResource("8_yqky3")]
+[node name="Movable3" parent="Movables" unique_id=1844980500 instance=ExtResource("8_yqky3")]
 position = Vector2(-16, 16)
 
-[node name="Movable6" parent="." unique_id=1064704538 instance=ExtResource("8_yqky3")]
+[node name="Movable6" parent="Movables" unique_id=1064704538 instance=ExtResource("8_yqky3")]
 position = Vector2(144, -16)
 
-[node name="Movable2" parent="." unique_id=295458854 instance=ExtResource("8_yqky3")]
+[node name="Movable2" parent="Movables" unique_id=295458854 instance=ExtResource("8_yqky3")]
 position = Vector2(-368, -112)
 
-[node name="Movable4" parent="." unique_id=1766239228 instance=ExtResource("8_yqky3")]
+[node name="Movable4" parent="Movables" unique_id=1766239228 instance=ExtResource("8_yqky3")]
 position = Vector2(-336, -112)
 
-[node name="Movable5" parent="." unique_id=1847818417 instance=ExtResource("8_yqky3")]
+[node name="Movable5" parent="Movables" unique_id=1847818417 instance=ExtResource("8_yqky3")]
 position = Vector2(-304, -112)
 
 [connection signal="intro_complete" from="Dr_ Chronos" to="Camera2D" method="on_target_intro_complete"]
