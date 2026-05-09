@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://cpfimqkuyna5y"]
 
 [ext_resource type="Texture2D" uid="uid://2as5nwgx0ljc" path="res://icon.svg" id="1_pkf45"]
+[ext_resource type="Script" uid="uid://cxgu0i8sapcpy" path="res://entities/Interactables/chests/lab_chest.gd" id="1_xwrwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwrwb"]
+size = Vector2(24, 24)
 
 [node name="LabChest" type="Node2D" unique_id=44366650]
+script = ExtResource("1_xwrwb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2050766879]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1220418146]
+shape = SubResource("RectangleShape2D_xwrwb")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1967939223]
 texture = ExtResource("1_pkf45")

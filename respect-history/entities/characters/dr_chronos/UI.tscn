@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://6h0wwoyxa2ks"]
+
+[ext_resource type="Script" uid="uid://bq2nu0k7jkvp2" path="res://entities/characters/dr_chronos/canvas_layer.gd" id="1_6li8g"]
+[ext_resource type="Texture2D" uid="uid://dpkiccfx25dju" path="res://entities/characters/dr_chronos/visuals/Skull 0011.png" id="1_p2f4w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6li8g"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.015686275, 0.015686275, 0.015686275, 0.5921569)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2f4w"]
+
+[node name="Ui" type="Node2D" unique_id=1866883529]
+script = ExtResource("1_6li8g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1938641989]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=99461226]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UI_Background" type="PanelContainer" parent="CanvasLayer/Control" unique_id=271160374]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 82.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6li8g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/UI_Background" unique_id=2075447326]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UI_Background/HBoxContainer" unique_id=1389564885]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_p2f4w")
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="CanvasLayer/Control/UI_Background/HBoxContainer" unique_id=852303524]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_p2f4w")
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/UI_Background/HBoxContainer" unique_id=1599622856]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_p2f4w")
+stretch_mode = 5
+
+[node name="KeyLabel" type="Label" parent="CanvasLayer/Control/UI_Background/HBoxContainer" unique_id=1579237906]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_p2f4w")
+vertical_alignment = 1

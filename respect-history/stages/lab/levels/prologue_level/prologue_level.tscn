@@ -8,8 +8,12 @@
 [ext_resource type="Script" uid="uid://nnwuk18abx1n" path="res://stages/camera_control.gd" id="6_haio7"]
 [ext_resource type="PackedScene" uid="uid://cq3l6rui1b8mf" path="res://entities/characters/dr_chronos/dr_chronos.tscn" id="6_ncg8f"]
 [ext_resource type="PackedScene" uid="uid://dhj56cq4kmpa8" path="res://entities/destroyables/destroyable.tscn" id="7_haio7"]
+[ext_resource type="PackedScene" uid="uid://6h0wwoyxa2ks" path="res://entities/characters/dr_chronos/UI.tscn" id="7_u4l60"]
 [ext_resource type="PackedScene" uid="uid://dovajluv06huy" path="res://entities/movables/lab_movable.tscn" id="8_yqky3"]
 [ext_resource type="PackedScene" uid="uid://qevordclxpjw" path="res://entities/Interactables/checkpoints/lab_checkpoint.tscn" id="10_rcdsr"]
+[ext_resource type="PackedScene" uid="uid://cpfimqkuyna5y" path="res://entities/Interactables/chests/lab_chest.tscn" id="11_2cbay"]
+[ext_resource type="Script" uid="uid://cslwfxtg5p5an" path="res://entities/collectables/Item_data.gd" id="12_oo7eu"]
+[ext_resource type="Resource" uid="uid://4jx7gn16by2a" path="res://entities/collectables/access_card.tres" id="13_u4l60"]
 
 [sub_resource type="Resource" id="Resource_x4x4f"]
 script = ExtResource("2_rpv4c")
@@ -471,6 +475,8 @@ zoom = Vector2(3, 3)
 script = ExtResource("6_haio7")
 target = NodePath("../Dr_ Chronos")
 
+[node name="Ui" parent="." unique_id=1866883529 instance=ExtResource("7_u4l60")]
+
 [node name="Checkpoints" type="Node2D" parent="." unique_id=115324593]
 position = Vector2(-176, -144)
 
@@ -479,6 +485,16 @@ position = Vector2(-320, -32)
 
 [node name="LabCheckpoint" parent="Checkpoints" unique_id=1356111122 instance=ExtResource("10_rcdsr")]
 position = Vector2(256, 192)
+
+[node name="Chests" type="Node2D" parent="." unique_id=730852246]
+
+[node name="LabChest" parent="Chests" unique_id=44366650 instance=ExtResource("11_2cbay")]
+position = Vector2(368, -112)
+contents = Array[ExtResource("12_oo7eu")]([ExtResource("13_u4l60")])
+
+[node name="LabChest2" parent="Chests" unique_id=1387586322 instance=ExtResource("11_2cbay")]
+position = Vector2(368, 176)
+coin_amount = 10
 
 [node name="Dr_ Chronos" parent="." unique_id=643783559 node_paths=PackedStringArray("target_camera") instance=ExtResource("6_ncg8f")]
 position = Vector2(-720, -176)
@@ -568,3 +584,4 @@ position = Vector2(-336, -112)
 position = Vector2(-304, -112)
 
 [connection signal="intro_complete" from="Dr_ Chronos" to="Camera2D" method="on_target_intro_complete"]
+[connection signal="stats_changed" from="Dr_ Chronos" to="Ui" method="_on_dr__chronos_stats_changed"]
