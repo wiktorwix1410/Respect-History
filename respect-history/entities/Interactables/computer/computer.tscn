@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://caklmn7amc8i7" path="res://entities/Interactables/computer/placeholder_comp2.png" id="2_6h4wo"]
 [ext_resource type="Texture2D" uid="uid://cpetgn71s3wbm" path="res://entities/Interactables/computer/placeholder_ekey.png" id="3_ml11u"]
 [ext_resource type="Script" uid="uid://bgcegcvlmoihw" path="res://entities/Interactables/computer/password_input.gd" id="4_6h4wo"]
+[ext_resource type="Texture2D" uid="uid://dwbm1dnwermci" path="res://entities/Interactables/computer/enter.jpg" id="5_77vwl"]
+[ext_resource type="Texture2D" uid="uid://xik3ikj5lmh7" path="res://entities/Interactables/computer/erase.jpg" id="6_b7d2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77vwl"]
 
@@ -47,26 +49,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -20.0
-offset_right = 50.0
-offset_bottom = 20.0
+offset_left = -45.0
+offset_top = -40.0
+offset_right = 45.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel" unique_id=1602287378]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.56
-offset_top = -15.5
-offset_right = 38.559998
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = -90.0
+offset_top = 68.0
+offset_right = -10.0
+offset_bottom = 91.0
 alignment = 1
 
 [node name="Label1" type="Label" parent="Control/Panel/HBoxContainer" unique_id=939326414]
@@ -80,3 +75,68 @@ layout_mode = 2
 
 [node name="Label4" type="Label" parent="Control/Panel/HBoxContainer" unique_id=1364322129]
 layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/Panel" unique_id=1371391380]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -72.5
+offset_right = 37.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="EnterButton" type="Button" parent="Control/Panel/GridContainer" unique_id=462133915]
+layout_mode = 2
+icon = ExtResource("5_77vwl")
+
+[node name="Button0" type="Button" parent="Control/Panel/GridContainer" unique_id=1504901978]
+layout_mode = 2
+text = "0"
+
+[node name="EraseButton" type="Button" parent="Control/Panel/GridContainer" unique_id=1839460690]
+layout_mode = 2
+icon = ExtResource("6_b7d2x")
+
+[node name="Button1" type="Button" parent="Control/Panel/GridContainer" unique_id=287351232]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="Control/Panel/GridContainer" unique_id=576103389]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="Control/Panel/GridContainer" unique_id=1552543914]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="Control/Panel/GridContainer" unique_id=498935356]
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="Control/Panel/GridContainer" unique_id=377003215]
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="Control/Panel/GridContainer" unique_id=1874228640]
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="Control/Panel/GridContainer" unique_id=1887092404]
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="Control/Panel/GridContainer" unique_id=103600069]
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="Control/Panel/GridContainer" unique_id=1931233881]
+layout_mode = 2
+text = "9"
+
+[connection signal="cancelled" from="Control" to="." method="cancelled"]
