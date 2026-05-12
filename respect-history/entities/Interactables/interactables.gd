@@ -18,22 +18,24 @@ func _ready():
 
 func _process(delta: float):
 	if is_in_range:
+		icon.visible = true
 		if is_menu_open:
-
+			icon.visible = false
 			if Input.is_action_just_released("cancel"):
 				password_ui.close()
 				player.is_dead = false
 				is_menu_open = false
-	
-		if Input.is_action_just_released("interact"):
+
+		elif Input.is_action_just_released("interact"):
 			interact_computer()
+
+	elif not is_in_range:
+		icon.visible = false
 			
 func _on_entered(body): # WARNING body is not used but without it the collision is undetected
-	icon.visible = true
 	is_in_range = true
 			
 func _on_exited(body):
-	icon.visible = false
 	is_in_range = false
 	
 func interact_computer():
