@@ -4,6 +4,7 @@ signal moving(dir: Vector2, is_moving: bool)
 signal intro_complete
 signal dead
 signal checkp
+signal stats_changed(coins: int, inventory: Array[ItemData])
 
 @onready var ray_cast_up: RayCast2D = $Raycast/RayCastUp
 @onready var ray_cast_down: RayCast2D = $Raycast/RayCastDown
@@ -39,6 +40,9 @@ var intro_complete_flag: bool = false # a flag primarily needed to unlock contro
 var intro_started: bool = false # a flag needed to make a delay before intro starts
 @export var intro_delay: float = 1.5
 
+var inventory: Array[ItemData] = []
+var coins: int = 0
+
 func _ready() -> void:
 	add_to_group('player')
 
@@ -47,6 +51,8 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(intro_delay).timeout
 	intro_started = true
+	
+	stats_changed.emit(coins, inventory)
 
 func _physics_process(delta: float) -> void:
 	if turn_delay_timer > 0.0:
@@ -167,6 +173,22 @@ func update_moving_signal(dir: Vector2, state: bool) -> void:
 		moving.emit(dir, state)
 		last_emitted_dir = dir
 		last_emitted_moving = state
+		
+func on_items_received(new_items: Array[ItemData]) -> void:
+	for item in new_items:
+		inventory.append(item)
+		print(item.item_name, " obtained!")
+	stats_changed.emit(coins, inventory)
+		
+func add_coins(amount: int) -> void:
+	coins += amount
+	print("Total Coins: ", coins)
+	stats_changed.emit(coins, inventory)
+
+func restore_inventory(saved_inventory: Array[ItemData], saved_coins: int) -> void:
+	inventory = saved_inventory.duplicate()
+	coins = saved_coins
+	stats_changed.emit(coins, inventory)
 
 func die() -> void:
 	is_dead = true

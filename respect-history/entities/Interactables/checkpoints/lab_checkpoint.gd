@@ -10,6 +10,8 @@ var player_body: Node2D = null                #Reference for the player characte
 
 
 var world_snapshot: Array = []                #"Snapshot" of the world/resettables state
+var saved_player_inventory: Array[ItemData] = []
+var saved_player_coins: int = 0
 
 func _ready() -> void:
 	add_to_group("checkpoints")               #Register this node in group so other nodes can find it
@@ -43,12 +45,18 @@ func deactivate() -> void:
 		is_activated = false
 		was_active_before = true
 		world_snapshot.clear() # Free up memory as this checkpoint is now overwritten
+		saved_player_inventory.clear()
+		saved_player_coins = 0
 
 #Saves the state of every object in the "resettable" group
 func save_world_state() -> void:
 	world_snapshot.clear()
-	var targets = get_tree().get_nodes_in_group("resettable")
 	
+	if player_body:
+		saved_player_inventory = player_body.inventory.duplicate()
+		saved_player_coins = player_body.coins
+		
+	var targets = get_tree().get_nodes_in_group("resettable")
 	for node in targets:
 		# We can only "respawn" objects that have a saved .tscn file
 		if node.scene_file_path != "":
@@ -57,8 +65,12 @@ func save_world_state() -> void:
 				"scene": node.scene_file_path,
 				"parent": node.get_parent(),
 				"position": node.global_position,
-				"name": node.name
+				"name": node.name,
+				"chest_data": {}
 			}
+			if node.has_method("save_data"):
+				data["chest_data"] = node.save_data()
+				
 			#Adds the object's data into the array
 			world_snapshot.append(data) 
 
@@ -68,6 +80,7 @@ func return_to_checkpoint() -> void:
 		#1. Restores the player to the checkpoint
 		player_body.moving.emit(Vector2.DOWN, false)    #Sets the player animation to "idle_down" for visual clarity
 		player_body.global_position = global_position
+		player_body.restore_inventory(saved_player_inventory, saved_player_coins)
 		
 		#2. Delete all current resettable objects
 		var current_objects = get_tree().get_nodes_in_group("resettable")
@@ -83,6 +96,10 @@ func return_to_checkpoint() -> void:
 			data["parent"].add_child(instance)
 			instance.global_position = data["position"]
 			instance.name = data["name"]
-			
+			if instance.has_method("load_save_data") and data["chest_data"].size() > 0:
+				instance.load_save_data(data["chest_data"])
+				instance.add_to_group("chests")
 			#Re-add to the group so it can be saved/reset again
 			instance.add_to_group("resettable")
+			
+		print("\n".repeat(10))

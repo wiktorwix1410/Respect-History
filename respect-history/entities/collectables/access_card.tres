@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://4jx7gn16by2a"]
+
+[ext_resource type="Texture2D" uid="uid://c1txa0mv2imwm" path="res://entities/movables/barrel.png" id="1_x7rcs"]
+[ext_resource type="Script" uid="uid://cslwfxtg5p5an" path="res://entities/collectables/Item_data.gd" id="2_e75uv"]
+
+[resource]
+script = ExtResource("2_e75uv")
+item_name = "Access Card"
+icon = ExtResource("1_x7rcs")
+metadata/_custom_type_script = "uid://cslwfxtg5p5an"
