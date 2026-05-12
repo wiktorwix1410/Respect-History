@@ -1,6 +1,7 @@
 extends Control
 
 signal cancelled
+signal open_door
 
 @onready var cells = $Panel/HBoxContainer.get_children()
 # WARNING these have to exacly in order as in the scene!!!
@@ -91,10 +92,9 @@ func update_cells():
 func check_password():
 	if password == correct_password:
 		print("correct")
-		# TODO emit a signal to a door to open
 		close()
-		# WARNING initiating an action so to not refer to other objects too much
 		cancelled.emit()
+		open_door.emit()
 	else:
 		print("wrong")
 		password = ""
@@ -114,7 +114,6 @@ func open(passwd): # getting the correct password from Computer node
 func close():
 	visible = false
 	active = false
-
 
 # TODO add riddle for computers
 	
