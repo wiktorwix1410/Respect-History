@@ -22,9 +22,7 @@ func _process(delta: float):
 		if is_menu_open:
 			icon.visible = false
 			if Input.is_action_just_released("cancel"):
-				password_ui.close()
-				player.is_dead = false
-				is_menu_open = false
+				cancelled()
 
 		elif Input.is_action_just_released("interact"):
 			interact_computer()
@@ -37,6 +35,11 @@ func _on_entered(body): # WARNING body is not used but without it the collision 
 			
 func _on_exited(body):
 	is_in_range = false
+	
+func cancelled():
+	password_ui.close()
+	player.is_dead = false
+	is_menu_open = false
 	
 func interact_computer():
 	password_ui.open(correct_password)

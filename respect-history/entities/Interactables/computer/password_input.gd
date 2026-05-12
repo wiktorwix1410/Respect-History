@@ -1,5 +1,7 @@
 extends Control
 
+signal cancelled
+
 @onready var cells = $Panel/HBoxContainer.get_children()
 # WARNING these have to exacly in order as in the scene!!!
 @onready var buttons = [
@@ -34,30 +36,14 @@ func _process(delta: float):
 	# moving between cells
 	if Input.is_action_just_released("move_down"):
 		move_selection(0, 1)
-	if Input.is_action_just_released("move_up"):
+	elif Input.is_action_just_released("move_up"):
 		move_selection(0, -1)
-	if Input.is_action_just_released("move_left"):
+	elif Input.is_action_just_released("move_left"):
 		move_selection(-1, 0)
-	if Input.is_action_just_released("move_right"):
+	elif Input.is_action_just_released("move_right"):
 		move_selection(1, 0)
-	if Input.is_action_just_pressed("interact"):
+	elif Input.is_action_just_released("interact"):
 		press_button()
-
-#func _input(event: InputEvent):
-	#if not active:
-		#return
-	#if event is InputEventKey and event.pressed:
-		#if event.keycode == KEY_BACKSPACE:
-			#if password.length() > 0:
-				#password = password.substr(0, password.length()-1)
-		#elif event.keycode == KEY_ENTER:
-			#check_password()
-		#elif event.unicode != 0 and password.length() < max_length:
-			#var character = char(event.unicode)
-			#if character.is_valid_int(): # WARNING allowing only the numbers input
-				#password += char(event.unicode)
-	#update_cells()
-
 
 func move_selection(dx: int, dy: int):
 	var row = selected_index / columns
@@ -108,7 +94,7 @@ func check_password():
 		# TODO emit a signal to a door to open
 		close()
 		# WARNING initiating an action so to not refer to other objects too much
-		Input.action_release("cancel")
+		cancelled.emit()
 	else:
 		print("wrong")
 		password = ""
