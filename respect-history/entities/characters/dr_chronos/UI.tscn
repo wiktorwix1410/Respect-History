@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bq2nu0k7jkvp2" path="res://entities/characters/dr_chronos/canvas_layer.gd" id="1_6li8g"]
 [ext_resource type="Texture2D" uid="uid://dpkiccfx25dju" path="res://entities/characters/dr_chronos/visuals/Skull 0011.png" id="1_p2f4w"]
+[ext_resource type="Texture2D" uid="uid://3dwrkqebart" path="res://Temporary acces card.png" id="3_4mb3t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6li8g"]
 content_margin_left = 10.0
@@ -44,6 +45,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UI_Background/HBoxContainer" unique_id=1389564885]
+texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("1_p2f4w")
@@ -56,9 +58,10 @@ label_settings = SubResource("LabelSettings_p2f4w")
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/UI_Background/HBoxContainer" unique_id=1599622856]
+texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("1_p2f4w")
+texture = ExtResource("3_4mb3t")
 stretch_mode = 5
 
 [node name="KeyLabel" type="Label" parent="CanvasLayer/Control/UI_Background/HBoxContainer" unique_id=1579237906]
