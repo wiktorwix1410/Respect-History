@@ -1,23 +1,26 @@
 extends AnimatedSprite2D
 
+var last_horizontal_direction: String = "right"
+
 func _ready() -> void:
 	get_parent().moving.connect(animate_movement)
 	get_parent().dead.connect(animate_death)
 
-func animate_movement(direction: Vector2, is_moving: bool) -> void:
+func animate_movement(direction: Vector2, is_moving: bool) -> void:	
 	var dir_string: String = direction_to_string(direction)
+	if dir_string == "left" or dir_string == "right":
+		last_horizontal_direction = dir_string
 	
-	if dir_string == "":
-		return
-		
-	var state_prefix: String
+	var animation_name: String
+
 	if is_moving:
-		state_prefix = "walk_"
+		if dir_string == "":
+			return
+		animation_name = "walk_" + dir_string
 	else:
-		state_prefix = "idle_"
-	
-	var anim_name: String = state_prefix + dir_string
-	play(anim_name)
+		animation_name = "idle_" + last_horizontal_direction
+		
+	play(animation_name)
 
 func animate_death() -> void:
 	play("dead")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwky8koefs8q"
-path="res://.godot/imported/run_up.png-c67a04c768944b1480734a94a051bff2.ctex"
+uid="uid://dl4kie5fjvxj7"
+path="res://.godot/imported/NewAnimationsWalkingIdleAndCrawling.png-fac33d9f5582fb7cd3db897fd8765fd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/dr_chronos/visuals/run/run_up.png"
-dest_files=["res://.godot/imported/run_up.png-c67a04c768944b1480734a94a051bff2.ctex"]
+source_file="res://entities/characters/dr_chronos/visuals/NewAnimationsWalkingIdleAndCrawling.png"
+dest_files=["res://.godot/imported/NewAnimationsWalkingIdleAndCrawling.png-fac33d9f5582fb7cd3db897fd8765fd7.ctex"]
 
 [params]
 
