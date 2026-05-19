@@ -319,7 +319,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_up",
-"speed": 7.0
+"speed": 15.0
 }]
 
 [node name="DrChronos" type="Node2D" unique_id=1430571325 groups=["player"]]
