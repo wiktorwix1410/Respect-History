@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://nnwuk18abx1n" path="res://stages/camera_control.gd" id="6_haio7"]
 [ext_resource type="PackedScene" uid="uid://cq3l6rui1b8mf" path="res://entities/characters/dr_chronos/dr_chronos.tscn" id="6_ncg8f"]
 [ext_resource type="PackedScene" uid="uid://dhj56cq4kmpa8" path="res://entities/destroyables/destroyable.tscn" id="7_haio7"]
-[ext_resource type="PackedScene" uid="uid://6h0wwoyxa2ks" path="res://entities/characters/dr_chronos/UI.tscn" id="7_u4l60"]
+[ext_resource type="PackedScene" uid="uid://6h0wwoyxa2ks" path="res://UI/UI.tscn" id="7_u4l60"]
 [ext_resource type="PackedScene" uid="uid://dovajluv06huy" path="res://entities/movables/lab_movable.tscn" id="8_yqky3"]
 [ext_resource type="PackedScene" uid="uid://qevordclxpjw" path="res://entities/Interactables/checkpoints/lab_checkpoint.tscn" id="10_rcdsr"]
 [ext_resource type="PackedScene" uid="uid://cpfimqkuyna5y" path="res://entities/Interactables/chests/lab_chest.tscn" id="11_2cbay"]
